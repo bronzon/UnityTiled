@@ -32,8 +32,36 @@
          "width":15,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "height":15,
+         "name":"Objects",
+         "objects":[
+                {
+                 "gid":598,
+                 "height":32,
+                 "id":1,
+                 "name":"Magic Chest",
+                 "properties":
+                    {
+                     "Special":"Chest"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":163,
+                 "y":113
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":15,
+         "x":0,
+         "y":0
         }],
- "nextobjectid":1,
+ "nextobjectid":2,
  "orientation":"orthogonal",
  "properties":
     {
@@ -45,7 +73,7 @@
         {
          "columns":32,
          "firstgid":1,
-         "image":"tiles.png",
+         "image":"..\/..\/..\/Tiled\/New Unity Project\/Assets\/Resources\/tiles.png",
          "imageheight":1024,
          "imagewidth":1024,
          "margin":0,

@@ -16,6 +16,7 @@ public class LevelDataJsonParser : MonoBehaviour {
 		return levelData;
 	}
 
+
 	List<Tileset> ParseTilesets(JSONObject tilesetsJson) {
 		List<Tileset> tilesetList = new List<Tileset> ();	
 		foreach (JSONObject tilesetJson in tilesetsJson.list) {
@@ -58,18 +59,50 @@ public class LevelDataJsonParser : MonoBehaviour {
 			layer.type = jsonLayer ["type"].str;
 			layer.name = jsonLayer ["name"].str;
 			layer.visible = jsonLayer ["visible"].b;
-
-			JSONObject tileDataJson = jsonLayer ["data"];
-			List<int> tileData = new List<int> ();
-
-			foreach (JSONObject dataJson in tileDataJson.list) {
-				tileData.Add ((int)dataJson.n);
+			List<TileData> tileData = null;
+			if(layer.type == "objectgroup") {
+				tileData = ParseObjects (jsonLayer ["objects"]);
+			} else if(layer.type == "tilelayer") {
+				tileData = ParseTiles (jsonLayer ["data"]);
 			}
+				
 			layer.data = tileData;
-
 			layerList.Add (layer);
 		}
 		return layerList;
 	}
+
+	List<TileData> ParseTiles(JSONObject tileDataJson) {
+		List<TileData> tileDataList = new List<TileData> ();
+
+		foreach (JSONObject dataJson in tileDataJson.list) {
+			tileDataList.Add (new TileData((int)dataJson.n));
+		}
+		return tileDataList;
+	}
+
+	List<TileData> ParseObjects(JSONObject objectDataJson) {
+		List<TileData> tileDataList = new List<TileData> ();
+
+		foreach (JSONObject dataJson in objectDataJson.list) {
+			var tileData = new TileData ((int)dataJson.GetField("gid").n);
+			tileData.x = dataJson.GetField ("x").n;
+			tileData.y = dataJson.GetField ("y").n;
+
+			JSONObject objectPropertiesJson = dataJson.GetField ("properties");
+
+			if (objectPropertiesJson != null) {
+				for (int n = 0; n < objectPropertiesJson.list.Count; n++) {
+					string propertyKey = (string)objectPropertiesJson.keys[n];
+					string value = objectPropertiesJson.list [n].str;
+					tileData.tileProperties.Add (propertyKey, value);
+				}
+			}
+
+			tileDataList.Add (tileData);
+		}
+		return tileDataList;
+	}
+
 }
 

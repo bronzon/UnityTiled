@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class LevelFactory : MonoBehaviour {
 	public TextAsset levelJsonFile;
 	public int tileWidth;
-	public JsonParser jsonParser;
+	public LevelDataJsonParser jsonParser;
 	public TileFactory tileFactory;
 	private GameObject levelParent;
 
@@ -21,23 +21,27 @@ public class LevelFactory : MonoBehaviour {
 			if (layer.type == "tilelayer") { 
 				for (int rowIndex = 0; rowIndex < layer.height; rowIndex++) {
 					for (int columnIndex = 0; columnIndex < layer.width; columnIndex++) {						
-						int spriteIndex = layer.data [tileIndex++];
+						int spriteIndex = layer.data [tileIndex++].brushIndex;
 						if (spriteIndex == 0) {
 							continue;
 						}
-						Dictionary<string, string> tileProperties = null;
-						tileProperties = levelData.tilesets [0].tileproperties.ContainsKey (spriteIndex-1) ? levelData.tilesets [0].tileproperties [spriteIndex-1] : new Dictionary<string, string> ();
-						GameObject tile = tileFactory.CreateTile (spriteIndex, tileProperties, levelData.tilesets[0].tilewidth);
-						tile.transform.Translate(new Vector3(columnIndex*tileWidth, -rowIndex*tileWidth));
-						tile.transform.SetParent (layerGameObject.transform);
+
+						CreateTileObject (new Vector3 (columnIndex * tileWidth, -rowIndex * tileWidth), levelData, spriteIndex, layerGameObject); 
 					}
 				}	
+			} else if (layer.type == "objectgroup") {
+				foreach (TileData tileData in layer.data) {
+					CreateTileObject (new Vector3 (tileData.x, tileData.y), levelData, tileData.brushIndex, layerGameObject);
+				}
 			}
 		}
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	void CreateTileObject(Vector3 position, LevelData levelData, int spriteIndex, GameObject parent) {
+		Dictionary<string, string> tileProperties = null;
+		tileProperties = levelData.tilesets [0].tileproperties.ContainsKey (spriteIndex - 1) ? levelData.tilesets [0].tileproperties [spriteIndex - 1] : new Dictionary<string, string> ();
+		GameObject tile = tileFactory.CreateTile (spriteIndex, tileProperties, levelData.tilesets [0].tilewidth);
+		tile.transform.SetParent (parent.transform);
+		tile.transform.Translate (position);
 	}
 }

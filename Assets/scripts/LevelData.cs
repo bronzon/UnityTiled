@@ -12,8 +12,14 @@ public class Tileset {
 }
 
 [Serializable]
-public class TiledObject {
-	public int gid;
+public class TileData {
+	public TileData(int brushIndex) {
+		this.brushIndex = brushIndex;
+	}
+	public Dictionary<string, string> tileProperties = new Dictionary<string, string> ();
+	public int brushIndex;
+	public float x;
+	public float y;
 }
 
 [Serializable]
@@ -23,8 +29,7 @@ public class Layer {
 	public int width;
 	public int height;
 	public string name;
-	public TiledObject[] objects;
-	public List<int> data;
+	public List<TileData> data;
 }
 
 [Serializable]
