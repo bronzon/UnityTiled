@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class JsonParser : MonoBehaviour {
+public class LevelDataJsonParser : MonoBehaviour {
 
 	// Use this for initialization
 	public LevelData Parse (string levelJson) {
