@@ -31,7 +31,7 @@ public class LevelFactory : MonoBehaviour {
 				}	
 			} else if (layer.type == "objectgroup") {
 				foreach (TileData tileData in layer.data) {
-					CreateTileObject (new Vector3 (tileData.x, tileData.y), levelData, tileData.brushIndex, layerGameObject);
+					CreateTileObject (new Vector3 (tileData.x, -tileData.y+levelData.tilesets [0].tileheight), levelData, tileData.brushIndex, layerGameObject);
 				}
 			}
 		}
