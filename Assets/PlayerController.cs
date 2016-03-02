@@ -14,7 +14,11 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector2 direction = new Vector2(Input.GetAxisRaw ("Horizontal"),Input.GetAxisRaw ("Vertical"));
-
+		if (direction.magnitude == 0) {
+			animator.enabled = false;
+		} else {
+			animator.enabled = true;
+		}
 		animator.SetInteger ("horizontal", (int)direction.x);
 		animator.SetInteger ("vertical", (int)direction.y);
 
