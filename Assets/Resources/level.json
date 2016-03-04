@@ -47,6 +47,10 @@
                     {
                      "Special":"Chest"
                     },
+                 "propertytypes":
+                    {
+                     "Special":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -59,10 +63,6 @@
                  "height":32,
                  "id":2,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -75,10 +75,6 @@
                  "height":32,
                  "id":3,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -91,10 +87,6 @@
                  "height":32,
                  "id":4,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -107,10 +99,6 @@
                  "height":32,
                  "id":5,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -123,10 +111,6 @@
                  "height":32,
                  "id":6,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -139,16 +123,32 @@
                  "height":32,
                  "id":7,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
                  "x":208,
                  "y":208
+                }, 
+                {
+                 "gid":170,
+                 "height":32,
+                 "id":10,
+                 "name":"",
+                 "properties":
+                    {
+                     "spawn":"player"
+                    },
+                 "propertytypes":
+                    {
+                     "spawn":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":false,
+                 "width":32,
+                 "x":372,
+                 "y":101.5
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -156,28 +156,31 @@
          "width":15,
          "x":0,
          "y":0
+        }, 
+        {
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 0, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 65, 66, 67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 97, 161, 99, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 129, 193, 131, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":15,
+         "name":"Tile Layer 4",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":15,
+         "x":0,
+         "y":0
         }],
- "nextobjectid":10,
+ "nextobjectid":11,
  "orientation":"orthogonal",
- "properties":
-    {
-
-    },
  "renderorder":"right-down",
  "tileheight":32,
  "tilesets":[
         {
          "columns":32,
          "firstgid":1,
-         "image":"..\/..\/..\/Tiled\/New Unity Project\/Assets\/Resources\/tiles.png",
+         "image":"tiles.png",
          "imageheight":1024,
          "imagewidth":1024,
          "margin":0,
          "name":"tiles",
-         "properties":
-            {
-
-            },
          "spacing":0,
          "tilecount":1024,
          "tileheight":32,
@@ -192,10 +195,6 @@
                  "colliding":"true"
                 },
              "120":
-                {
-                 "colliding":"true"
-                },
-             "121":
                 {
                  "colliding":"true"
                 },
@@ -250,6 +249,73 @@
              "90":
                 {
                  "colliding":"true"
+                }
+            },
+         "tilepropertytypes":
+            {
+             "0":
+                {
+                 "colliding":"string"
+                },
+             "1":
+                {
+                 "colliding":"string"
+                },
+             "120":
+                {
+                 "colliding":"string"
+                },
+             "122":
+                {
+                 "colliding":"string"
+                },
+             "152":
+                {
+                 "colliding":"string"
+                },
+             "153":
+                {
+                 "colliding":"string"
+                },
+             "154":
+                {
+                 "colliding":"string"
+                },
+             "2":
+                {
+                 "colliding":"string"
+                },
+             "32":
+                {
+                 "colliding":"string"
+                },
+             "34":
+                {
+                 "colliding":"string"
+                },
+             "64":
+                {
+                 "colliding":"string"
+                },
+             "65":
+                {
+                 "colliding":"string"
+                },
+             "66":
+                {
+                 "colliding":"string"
+                },
+             "88":
+                {
+                 "colliding":"string"
+                },
+             "89":
+                {
+                 "colliding":"string"
+                },
+             "90":
+                {
+                 "colliding":"string"
                 }
             },
          "tilewidth":32

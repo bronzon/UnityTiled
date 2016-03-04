@@ -24,25 +24,31 @@ public class LevelDataJsonParser : MonoBehaviour {
 			tileset.tilewidth = (int)tilesetJson.GetField ("tilewidth").n;
 			tileset.tileheight = (int)tilesetJson.GetField ("tileheight").n;
 			JSONObject tilepropertiesJson = tilesetJson.GetField ("tileproperties");
-			for (int i = 0; i < tilepropertiesJson.list.Count; i++) {
-				JSONObject customPropertiesForTileJson = (JSONObject)tilepropertiesJson.list[i];
-				if (customPropertiesForTileJson != null) {
-					int key = int.Parse((string)tilepropertiesJson.keys[i]);
+		    if (tilepropertiesJson != null){
+                for (int i = 0; i < tilepropertiesJson.list.Count; i++)
+                {
+                    JSONObject customPropertiesForTileJson = (JSONObject)tilepropertiesJson.list[i];
+                    if (customPropertiesForTileJson != null)
+                    {
+                        int key = int.Parse((string)tilepropertiesJson.keys[i]);
 
-					if (!tileset.tileproperties.ContainsKey(key)) {
-						tileset.tileproperties [key] = new Dictionary<string, string> ();				
-					}
+                        if (!tileset.tileproperties.ContainsKey(key))
+                        {
+                            tileset.tileproperties[key] = new Dictionary<string, string>();
+                        }
 
-					Dictionary<string, string> properties = tileset.tileproperties [key];
+                        Dictionary<string, string> properties = tileset.tileproperties[key];
 
-					for (int n = 0; n < customPropertiesForTileJson.list.Count; n++) {
-						string propertyKey = (string)customPropertiesForTileJson.keys[n];
-						string value = customPropertiesForTileJson.list [n].str;
-						properties.Add (propertyKey, value);
-					}
-				}
+                        for (int n = 0; n < customPropertiesForTileJson.list.Count; n++)
+                        {
+                            string propertyKey = (string)customPropertiesForTileJson.keys[n];
+                            string value = customPropertiesForTileJson.list[n].str;
+                            properties.Add(propertyKey, value);
+                        }
+                    }
 
-			}
+                }
+		    }
 			tilesetList.Add (tileset);
 		}
 		return tilesetList;
@@ -88,7 +94,7 @@ public class LevelDataJsonParser : MonoBehaviour {
 			var tileData = new TileData ((int)dataJson.GetField("gid").n);
 			tileData.x = dataJson.GetField ("x").n;
 			tileData.y = dataJson.GetField ("y").n;
-
+		    tileData.visible = dataJson.GetField("visible").b;
 			JSONObject objectPropertiesJson = dataJson.GetField ("properties");
 
 			if (objectPropertiesJson != null) {

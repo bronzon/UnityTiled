@@ -115,6 +115,7 @@ MonoBehaviour:
   levelJsonFile: {fileID: 4900000, guid: 8d87f6a26549b3049ae58a36032d213c, type: 3}
   tileWidth: 32
   jsonParser: {fileID: 835972937}
+  tilePropertiesFactory: {fileID: 13101740}
   tileFactory: {fileID: 1948201766}
 --- !u!4 &8662440
 Transform:
@@ -128,6 +129,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!1 &13101739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 13101741}
+  - 114: {fileID: 13101740}
+  m_Layer: 0
+  m_Name: TilePropertiesFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &13101740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 13101739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e800b7734b10684a8ddbe125e9c73e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &13101741
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 13101739}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.20000076, y: -20.465, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!1 &432930173
 GameObject:
   m_ObjectHideFlags: 0
