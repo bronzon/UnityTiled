@@ -20,6 +20,7 @@ public class TileData {
 	public int brushIndex;
 	public float x;
 	public float y;
+    public bool visible = true;
 }
 
 [Serializable]
